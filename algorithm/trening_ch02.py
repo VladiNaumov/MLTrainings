@@ -6,8 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
-from ML.algorithm.Perceptron import Perceptron
-from ML.algorithm.AdalineGD import AdalineGD
+from algorithm.Adaline import AdalineGD
+from algorithm.Perceptron import Perceptron
 
 
 def plot_decision_regions(X, y, classifier, resolution=0.02):
@@ -72,8 +72,7 @@ plt.show()
 
 
 
-# ### Training the perceptron model
-
+"""Training the Perzeptron model"""
 
 
 ppn = Perceptron(eta=0.1, n_iter=10)
@@ -96,10 +95,10 @@ plt.legend(loc='upper left')
 # plt.savefig('images/02_08.png', dpi=300)
 plt.show()
 
-
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 4))
 
-# AdalineGD
+
+"""Training the AdalineGD model"""
 
 ada1 = AdalineGD(n_iter=10, eta=0.01).fit(X, y)
 ax[0].plot(range(1, len(ada1.cost_) + 1), np.log10(ada1.cost_), marker='o')
@@ -117,14 +116,13 @@ ax[1].set_title('Adaline - Learning rate 0.0001')
 plt.show()
 
 
-
 # standardize features
 X_std = np.copy(X)
 X_std[:, 0] = (X[:, 0] - X[:, 0].mean()) / X[:, 0].std()
 X_std[:, 1] = (X[:, 1] - X[:, 1].mean()) / X[:, 1].std()
 
 
-# AdalineGD
+"""AdalineGD model"""
 
 ada_gd = AdalineGD(n_iter=15, eta=0.01)
 ada_gd.fit(X_std, y)
