@@ -12,8 +12,7 @@ print(df)
 
 """
 
-df_cv = pd.read_csv('C:\\Users\\Sim\\Desktop\\DataScience\\Pandas\\train.csv')
-# df = pd.read_csv('train.csv', delimiter=',')
+df_cv = pd.read_csv('C:/Users/Sim/Desktop/MLTrainings/data/ram_price.csv')
 print(df_cv)
 
 print(df_cv.count())

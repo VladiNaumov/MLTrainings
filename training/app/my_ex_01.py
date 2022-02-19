@@ -12,6 +12,7 @@ houses_info = houses.head(10)
 print(houses_info)
 
 
+
 # создаем картинку
 fig = plt.figure(figsize=(7, 7))
 ax = plt.axes()
