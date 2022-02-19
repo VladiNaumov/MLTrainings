@@ -10,7 +10,7 @@ from sklearn.metrics import mean_squared_error
 from scipy.spatial import distance
 
 
-data = pd.read_csv('../data/non_linear.csv', sep=',')
+data = pd.read_csv('../../data/non_linear.csv', sep=',')
 data = data[(data.x_train > 1) & (data.x_train < 5)].copy()
 
 X = data['x_train'].values.reshape(-1, 1) # превращаем X из простого массива в вектор-столбец

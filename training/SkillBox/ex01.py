@@ -5,19 +5,12 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 
-# для отрисовки 3D проекции
-from mpl_toolkits.mplot3d import Axes3D
-
 # импортируем модуль, отвечающий за линейную регрессию
 from sklearn.linear_model import LinearRegression
-
-# импортируем модуль, отвечающий за линейную регрессию
-from sklearn.linear_model import LinearRegression
-
-
 matplotlib.rc("font", size=10) # для увеличения шрифта подписей графиков
+
 # загружаем данные
-houses = pd.read_csv("../data/houses.csv")
+houses = pd.read_csv("../../data/houses.csv")
 info = houses.head(7)
 print(info)
 

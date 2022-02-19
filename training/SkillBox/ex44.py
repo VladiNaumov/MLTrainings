@@ -19,7 +19,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
 
-data = pd.read_csv('../data/non_linear.csv', sep=',')
+data = pd.read_csv('../../data/non_linear.csv', sep=',')
 print(data.head())
 
 # основной график
