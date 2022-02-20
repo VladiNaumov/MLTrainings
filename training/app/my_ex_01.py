@@ -3,7 +3,6 @@
 
 import matplotlib.pyplot as plt
 import pandas as pd
-# импортируем модуль, отвечающий за линейную регрессию
 from sklearn.linear_model import LinearRegression
 
 """  houses = pd.read_csv('C:\\Users\\Sim\\Desktop\\MLTrainings\\training\\data\\houses.csv')  """

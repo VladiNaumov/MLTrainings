@@ -3,8 +3,6 @@
 
 import pandas as pd
 from matplotlib import pyplot as plt
-
-# импортируем модуль, отвечающий за линейную регрессию
 from sklearn.linear_model import LinearRegression
 
 """ phones = pd.read_csv('C:/Users/Sim/jupiter-book/data/phones.csv', sep=',') """
@@ -33,8 +31,9 @@ y = phones["disk"]
 reg = LinearRegression().fit(X, y)
 
 # вытаскиваем нужные коэффициенты
-[b] = reg.coef_
+b = reg.coef_
 a = reg.intercept_
+
 
 # функцию для предсказания цены дома
 def reg_prediction(number):
