@@ -12,20 +12,13 @@ phones_info = phones.head(5)
 print(phones_info)
 
 
-# создаем картинку
-fig = plt.figure(figsize=(7, 7))
-ax = plt.axes()
-
-
-# помещаем точки на график
-ax.scatter(phones["disk"], phones["price"], s=100)
-
-# отображаем картинку
-plt.show()
-
 # выгружаем признаки и целевые значения в отдельные переменные
 X = phones[["price"]]
 y = phones["disk"]
+
+# помещаем точки на график
+plt.plot(X,y, 'o', alpha=0.9)
+plt.show()
 
 # создаем регрессор
 reg = LinearRegression().fit(X, y)
@@ -42,12 +35,17 @@ def reg_prediction(number):
 inf = reg_prediction(X.price[0])
 print(inf)
 
-# создаем картинку
-fig = plt.figure(figsize=(10, 10))
+"""создаем картинку"""
+
+# размер графика 
+#fig = plt.figure(figsize=(10, 10))
 ax = plt.axes()
+
+plt.plot(X, y, 'o', alpha=0.9)
 
 # помещаем точки на график
 ax.scatter(phones["price"], phones["disk"], s=100)
+
 # помещаем предсказания
 ax.plot([X.price.min(), X.price.max()], [reg_prediction(X.price.min()), reg_prediction(X.price.max())], c="red")
 
