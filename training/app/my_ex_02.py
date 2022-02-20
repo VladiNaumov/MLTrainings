@@ -32,7 +32,7 @@ a = reg.intercept_
 def reg_prediction(number):
     return a + b * number
 
-inf = reg_prediction(X.price[0])
+inf = reg_prediction(X.Y_price[0])
 print(inf)
 
 """создаем картинку"""
@@ -47,7 +47,7 @@ plt.plot(X, y, 'o', alpha=0.9)
 ax.scatter(phones["price"], phones["disk"], s=100)
 
 # помещаем предсказания
-ax.plot([X.price.min(), X.price.max()], [reg_prediction(X.price.min()), reg_prediction(X.price.max())], c="red")
+ax.plot([X.Y_price.min(), X.Y_price.max()], [reg_prediction(X.Y_price.min()), reg_prediction(X.Y_price.max())], c="red")
 
 # отображаем картинку
 plt.show()
