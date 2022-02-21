@@ -4,7 +4,7 @@ import pandas as pd
 import statsmodels.api as sm
 from sklearn.linear_model import LinearRegression
 
-data = pd.read_csv("../data/Advertising.csv")
+data = pd.read_csv("../../data/Advertising.csv")
 
 # Чтобы увидеть, как выглядят данные, мы делаем следующее:
 data.head()

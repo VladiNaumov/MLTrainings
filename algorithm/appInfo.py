@@ -1,7 +1,6 @@
 import sys
 print("Python version:", sys.version)
 
-import pandas as pd
 from sklearn.datasets import load_iris
 
 iris_dataset = load_iris()

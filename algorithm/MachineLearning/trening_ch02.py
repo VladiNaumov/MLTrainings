@@ -1,13 +1,12 @@
 # coding: utf-8
 
 import numpy as np
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
-from algorithm.Adaline import AdalineGD
-from algorithm.Perceptron import Perceptron
+from algorithm.MachineLearning.Adaline import AdalineGD
+from algorithm.MachineLearning.Perceptron import Perceptron
 
 
 def plot_decision_regions(X, y, classifier, resolution=0.02):
