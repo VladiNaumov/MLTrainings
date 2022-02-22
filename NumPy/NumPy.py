@@ -117,3 +117,23 @@ lst3 = np.array([(i in lst2) for i in lst1])
 print(lst3)
 """
 
+# reshape
+
+a = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+a = b.reshape(-1, 12)
+print(a)
+
+b = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+b = b.reshape(-1, 1)
+print(b)
+
+c = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+c = b.reshape(-1, 4)
+print(c)
+
+d = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+d = b.reshape(-1, 2)
+print(d)
+
+e = np.arange(6).reshape(-1, 3)
+print(e)
