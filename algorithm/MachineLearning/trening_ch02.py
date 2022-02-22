@@ -44,7 +44,7 @@ v2 = 0.5 * v1
 np.arccos(v1.dot(v2) / (np.linalg.norm(v1) * np.linalg.norm(v2)))
 
 
-df = pd.read_csv('../../app/example/iris.data', header=None, encoding='utf-8')
+df = pd.read_csv('../../MyApp/example/iris.data', header=None, encoding='utf-8')
 df.tail()
 
 
