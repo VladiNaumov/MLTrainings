@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 
 # импортируем модуль, отвечающий за деревья решений

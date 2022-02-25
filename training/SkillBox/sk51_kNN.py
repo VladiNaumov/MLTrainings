@@ -1,9 +1,9 @@
 # Алгоритм KNN
-
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from sklearn.datasets import load_iris
 
+from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
 # возвращает объект с несколькими полями
@@ -14,7 +14,7 @@ iris_dataset.keys()
 
 iris_dataset['DESCR'][:177] # описание датасета
 
-iris_dataset['target_names'] # виды ирисов
+iris_dataset['target_names'] # виды цветов ирисов
 
 iris_dataset['feature_names'] # характеристики каждого цветка
 
@@ -24,47 +24,57 @@ iris_dataset['target'] # 0 - setosa, 1 - versicolor, 2 - virginica
 print(type(iris_dataset['data']))
 iris_dataset['data'].shape # всего 150 цветков, у каждого 4 измерения
 
-# Теперь взглянем на наши данные.
+"""Теперь взглянем на наши данные."""
 
+"""
 iris_dataframe = pd.DataFrame(iris_dataset['data'], columns=iris_dataset.feature_names)
 scat_mtrx = pd.plotting.scatter_matrix(iris_dataframe, c=iris_dataset['target'], figsize=(10, 10), marker='o',
                                        hist_kwds={'bins': 20}, s=40, alpha=.8)
-
 # отображаем картинку
-# plt.show()
-
-"""
-Из графиков мы можем заметить, что данные классов, по-видимому, хорошо сепарируются (от separate - разделять) по измерениям лепестков и чашелистиков, поэтому, скорее всего, модель машинного обучения сможет научиться неплохо их разделять.
-
-Но при четырех параметрах достаточно сложно представить, как расположены объекты относительно друг друга, так как придется работать в четырехмерном пространстве. По графикам видно, что лучше всего цветки разбиваются по измерениям длины и ширины лепестка (petal length, petal width), поэтому для наглядности оставим только эти данные.
+plt.show()
 """
 
-iris_dataframe_simple = pd.DataFrame(iris_dataset.data[:, 2:4], columns=iris_dataset.feature_names[2:4])
-scat_mtrx = pd.plotting.scatter_matrix(iris_dataframe_simple, c=iris_dataset['target'], figsize=(10, 10), marker='o',
-                                       hist_kwds={'bins': 20}, s=40, alpha=.8)
-
 """
-Разобьем данные на тренировочный и тестовый датасеты и для простоты реализации алгоритма объединим массивы признаков объектов и метки их классов, чтобы было понятно, к какому классу относится каждый объект.
+Из графиков мы можем заметить, что данные классов, по-видимому, хорошо сепарируются (от separate - разделять)
+по измерениям лепестков и чашелистиков, поэтому, скорее всего, модель машинного обучения сможет научиться неплохо их разделять.
+
+Но при четырех параметрах достаточно сложно представить, как расположены объекты относительно друг друга, 
+так как придется работать в четырехмерном пространстве. По графикам видно, 
+что лучше всего цветки разбиваются по измерениям длины и ширины лепестка (petal length, petal width), поэтому для наглядности оставим только эти данные.
+"""
+# делаем свои переменные
+a = iris_dataset.data[:, 2:4]
+b = iris_dataset.feature_names[2:4]
+d = iris_dataset['target']
+
+
+iris_dataframe_simple = pd.DataFrame(a, columns = b)
+scat_mtrx = pd.plotting.scatter_matrix(iris_dataframe_simple, c = d, figsize=(10, 10), marker='o', hist_kwds={'bins': 20}, s=40, alpha=.8)
+
+plt.show()
+"""
+Разобьем данные на тренировочный и тестовый датасеты и для простоты реализации алгоритма 
+объединим массивы признаков объектов и метки их классов, чтобы было понятно, к какому классу относится каждый объект.
 """
 
 
-x_train, x_test, y_train, y_test = train_test_split(iris_dataset.data[:, 2:4],
-                                                    iris_dataset['target'],
-                                                    random_state=0) # random_state - для воспроизводимости
+x_train, x_test, y_train, y_test = train_test_split(a, d, random_state=0) # random_state - для воспроизводимости
 
 print(f'X_train shape: {x_train.shape}, y_train shape: {y_train.shape},\n'
       f'X_test shape: {x_test.shape}, y_test shape: {y_test.shape}')
 
 
-
 x_train_concat = np.concatenate((x_train, y_train.reshape(112, 1)), axis=1)
 x_test_concat = np.concatenate((x_test, y_test.reshape(38, 1)), axis=1)
+
 print(f'X_train shape: {x_train_concat.shape},\n'
       f'X_test shape: {x_test_concat.shape}')
 
+""".head(5) показать первые пять элементов  """
 pd.DataFrame(x_train_concat).head(5)
 
-# Приступим к реализации алгоритма.
+
+""" Приступим к реализации алгоритма. """
 
 import math
 
@@ -110,7 +120,7 @@ def accuracy(test, test_prediction):
             correct += 1
     return (correct / len(test))
 
-# Посмотрим, как работает наш алгоритм.
+""" Посмотрим, как работает наш алгоритм. """
 
 predictions = []
 for x in range (len(x_test_concat)):
@@ -121,7 +131,9 @@ for x in range (len(x_test_concat)):
 accuracy = accuracy(x_test_concat, predictions)
 print(f'Accuracy: {accuracy}')
 
-# Теперь импортируем библиотечную версию алгоритма.
+
+
+""" Теперь импортируем библиотечную версию алгоритма."""
 
 from sklearn.neighbors import KNeighborsClassifier
 knn = KNeighborsClassifier(n_neighbors=5)
@@ -132,12 +144,13 @@ knn = KNeighborsClassifier(n_neighbors=5)
 """
 
 """
-Для построения модели на обучающем множестве вызывается метод fit объекта knn, который принимает в качестве аргументов массив NumPy x_train, содержащий обучающие данные, и массив NumPy y_train соответствующих обучающих меток.
+Для построения модели на обучающем множестве вызывается метод .fit() объекта knn, 
+который принимает в качестве аргументов массив NumPy x_train, содержащий обучающие данные, и массив NumPy y_train соответствующих обучающих меток.
 """
 
 knn_model = knn.fit(x_train, y_train)
 
-# Для предсказаний вызывается метод predict, который в качестве аргументов принимает тестовые данные.
+# Для предсказаний вызывается метод predict(), который в качестве аргументов принимает тестовые данные.
 
 knn_predictions = knn.predict(x_test)
 knn_predictions
@@ -149,5 +162,7 @@ accuracy = accuracy_score(y_test, knn_predictions)
 print(f'Accuracy: {accuracy}')
 
 """
-Как мы видим, реализованный вручную алгоритм при данных параметрах по точности сопоставим с библиотечной моделью, однако на практике стоит пользоваться именно готовыми реализациями, так как зачастую они гораздо лучше оптимизированы и быстрее/лучше работают с большими выборками данных.
+Как мы видим, реализованный вручную алгоритм при данных параметрах по точности сопоставим с библиотечной моделью, 
+однако на практике стоит пользоваться именно готовыми реализациями, 
+так как зачастую они гораздо лучше оптимизированы и быстрее/лучше работают с большими выборками данных.
 """
