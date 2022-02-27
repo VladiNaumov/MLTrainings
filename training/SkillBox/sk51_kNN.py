@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
-# возвращает объект с несколькими полями
+# Загружаем набор данных Ирисы:
 iris_dataset = load_iris()
 
 # Посмотрим, что включает в себя набор данных.
@@ -52,8 +52,9 @@ iris_dataframe_simple = pd.DataFrame(a, columns = b)
 scat_mtrx = pd.plotting.scatter_matrix(iris_dataframe_simple, c = d, figsize=(10, 10), marker='o', hist_kwds={'bins': 20}, s=40, alpha=.8)
 
 plt.show()
+
 """
-Разобьем данные на тренировочный и тестовый датасеты и для простоты реализации алгоритма 
+Разобьем данные на тренировочный и тестовый датасеты и для простоты реализации алгоритма используя метод train_test_split()
 объединим массивы признаков объектов и метки их классов, чтобы было понятно, к какому классу относится каждый объект.
 """
 
