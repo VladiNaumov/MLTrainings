@@ -11,8 +11,6 @@ def sigmoid(x):
     return value
 
 
-
-
 plt.figure(figsize=(10, 5))
 plt.title("$\sigma(x)$")
 xs = np.linspace(-5, 5, 100)

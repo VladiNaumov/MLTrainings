@@ -1,4 +1,5 @@
-"""Задание 1 Реализуйте функции, необходимые для вычисления правдоподобия и логарифма правдоподобия.
+"""
+функции для вычисления likelihood and log likelihood (правдоподобия и логарифма правдоподобия).
 """
 
 import numpy as np
@@ -12,18 +13,18 @@ def p_hat(p, y):
     # функция должна вернуть вероятность класса y, при предсказании
     # модели p
 
-    # < YOUR CODE STARTS HERE >
+   
     if y == 1:
         return p
     else:
         return (1 - p)
-    # < YOUR CODE ENDS HERE >
+    
 
-
+# вычисление p с крышкой
 def log_p_hat(p, y):
     return np.log(p_hat(p, y))
 
-
+# вычисление правдоподобие для всей выборки 
 def likelihood(ps, ys):
     # ps - предсказанные вероятности класса 1 моделю для N объектов
     # ys - реальные классы N объектов
@@ -48,9 +49,9 @@ def loglikelihood(ps, ys):
     p = np.clip(ps, a_min=1e-6, a_max=1 - 1e-6)
     log_probs = [log_p_hat(p, y) for (p, y) in zip(ps, ys)]
     loglikelihood_ = None
-    # < YOUR CODE STARTS HERE >
+    
     loglikelihood_ = np.sum(log_probs)
-    # < YOUR CODE ENDS HERE >
+    
     return loglikelihood_
 
 
@@ -79,10 +80,9 @@ p_to_try =  np.linspace(0, 1, N)
 # Переменная liks должна содержать значения правдоподобия для каждой из 100 вероятностей в p_to_try.
 # Переменная logliks должна содержать значения логарифма правдоподобия для каждой из 100 вероятностей в p_to_try.
 
-liks =
-logliks =
+liks = [likelihood([p]*10,coins) for p in p_to_try]
+logliks = [likelihood([p]*10,coins) for p in p_to_try]
 
-# < YOUR CODE ENDS HERE >
 
 max_lik_ind = np.argmax(liks)
 max_loglik_ind = np.argmax(logliks)
@@ -100,3 +100,4 @@ plt.plot(p_to_try, -np.array(logliks))
 plt.scatter(p_to_try[max_loglik_ind], -logliks[max_loglik_ind], c='red')
 plt.title(f"Negative Log Likelihood. Min at $p={p_to_try[max_loglik_ind]:.2}$")
 _ = plt.xlabel("$p$")
+plt.show()
