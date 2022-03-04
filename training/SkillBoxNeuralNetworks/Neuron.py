@@ -1,5 +1,10 @@
 import numpy as np
 
+def sigmoid(x):
+
+    # value должна содержать выход сигмоиды
+    value = 1. / (1. + np.exp(-x))
+    return value
 
 class Neuron:
     """
@@ -83,9 +88,3 @@ class Neuron:
     def __repr__(self):
         return f"Neuron description. Weights: a={self.a}, b={self.b}. Bias: c={self.c}."
 
-
-def sigmoid(x):
-
-    # value должна содержать выход сигмоиды
-    value = 1. / (1. + np.exp(-x))
-    return value
