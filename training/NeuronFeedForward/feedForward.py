@@ -1,11 +1,14 @@
 """
 Создание нейронной сети прямое распространение FeedForward
 
+Пример сбор нейронов в нейросеть
+Нейронная сеть по сути представляет собой группу связанных между собой нейронов
+
 """
 
 import numpy as np
 
-from training.NeuronFeedForward.sigmoid import Neuron
+from training.NeuronFeedForward.sigmoid_Neuron import Neuron
 
 
 class OurNeuralNetwork:
@@ -20,7 +23,9 @@ class OurNeuralNetwork:
     """
 
     def __init__(self):
+        """ weights - 2 входа """
         weights = np.array([0, 1])
+        """ смещение """
         bias = 0
 
         # Класс Neuron из предыдущего раздела
@@ -41,3 +46,6 @@ class OurNeuralNetwork:
 network = OurNeuralNetwork()
 x = np.array([2, 3])
 print(network.feedforward(x))  # 0.7216325609518421
+
+y = np.array([1, 3])
+print(network.feedforward(y))  # 0.7216325609518421
