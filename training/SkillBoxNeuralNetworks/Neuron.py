@@ -1,5 +1,5 @@
 import numpy as np
-from matplotlib import pyplot as plt
+
 
 class Neuron:
     """
@@ -27,10 +27,9 @@ class Neuron:
         """
         assert np.ndim(x) == 2 and x.shape[1] == 2
         logit = None
-        # < YOUR CODE STARTS HERE >
+
         # переменная logit должна содержать логит, как описано в комментарии к функции
         logit = self.a * x[:, 0] + self.b * x[:, 1] + self.c
-        # < YOUR CODE ENDS HERE >
 
         return logit
 

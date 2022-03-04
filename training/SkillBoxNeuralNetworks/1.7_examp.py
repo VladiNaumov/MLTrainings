@@ -97,6 +97,7 @@ def create_three_axes():
 
 """ END """
 
+
 #  пользоваться нейроном можно следующим образом:
 x_random = np.random.rand(5, 2) # случайные данные
 
@@ -105,7 +106,7 @@ neuron_logit = Neuron(1, -1, 0, prob_output=False) # нейрон, на выхо
 
 probabilities = neuron_sigmoid(x_random)
 logits = neuron_logit(x_random)
-print(neuron_logit) # выведем описание нейрона
+print(f"Neuron_logit: {neuron_logit}") # выведем описание нейрона
 print(f"Logits: {logits}") # предсказанные логиты
 print(f"Probabilities: {probabilities}") # предсказанные вероятности
 print(f"Classes: {neuron_logit.predict_class(x_random)}") # предсказанные классы
