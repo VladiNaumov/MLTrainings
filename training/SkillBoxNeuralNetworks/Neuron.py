@@ -58,7 +58,6 @@ class Neuron:
             output = sigmoid(logit)
         else:
             output = logit
-        # < YOUR CODE ENDS HERE >
 
         assert output.shape == (
         x.shape[0],), f"Output size must have following shape: {[x.shape[0], ]}. Recieved: {output.shape}"
@@ -73,13 +72,12 @@ class Neuron:
         каждого из N объектов -- 0 или 1.
 
         """
-        # < YOUR CODE STARTS HERE >
+
         # переменная predicted_classes должна содержать предсказынные классы для всех объектов
         # не забывайте про уже реализованные функции )
 
         logit = self.calculate_logit(x)
         predicted_classes = (logit > 0.0).astype(np.int32)
-        # < YOUR CODE ENDS HERE >
 
         assert predicted_classes.shape == (
         x.shape[0],), f"Output size must have following shape: {[x.shape[0], ]}. Recieved: {output.shape}"

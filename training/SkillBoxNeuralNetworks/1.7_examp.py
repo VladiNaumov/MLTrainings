@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, LinearSegmentedColormap, Normalize
 from sklearn.metrics import accuracy_score
+
 from training.SkillBoxNeuralNetworks.Neuron import Neuron
 
 """ вспомогательный код """
