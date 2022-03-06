@@ -14,6 +14,7 @@ def go(house, rock, attr):
     w12 = [0.4, -0.5, 1]
 
     weight1 = np.array([w11, w12])  # матрица 2x3
+
     weight2 = np.array([-1, 1])     # вектор 1х2
 
 # |W1X1| [0.3, 0.3, 0]
@@ -25,7 +26,7 @@ def go(house, rock, attr):
     out_hidden = np.array([act(a) for a in sum_hidden])
     print("Значения на выходах нейронов скрытого слоя: "+str(out_hidden))
 
-# вычисляем сумму weight2 out_hidden
+# вычисляем сумму
     sum_end = np.dot(weight2, out_hidden)
 
     y = act(sum_end)
