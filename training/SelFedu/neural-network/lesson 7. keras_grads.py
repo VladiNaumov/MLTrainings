@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 from tensorflow.keras.layers import Dense
 
+
 c = np.array([-40, -10, 0, 8, 15, 22, 38])
 f = np.array([-40, 14, 32, 46, 59, 72, 100])
 
