@@ -12,7 +12,7 @@ matplotlib.rc("font", size=10) # для увеличения шрифта под
 from sklearn.cluster import KMeans
 
 # загружаем данные
-houses = pd.read_csv("../../data/houses.csv")
+houses = pd.read_csv("../../../data/houses.csv")
 info = houses.head(7)
 print(info)
 

@@ -1,0 +1,1 @@
+https://python-scripts.com/intro-to-neural-networks#creating-neuron-block

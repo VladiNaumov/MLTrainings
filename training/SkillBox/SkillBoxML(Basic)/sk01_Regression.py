@@ -10,7 +10,7 @@ from sklearn.linear_model import LinearRegression
 matplotlib.rc("font", size=10) # для увеличения шрифта подписей графиков
 
 # загружаем данные
-houses = pd.read_csv("../../data/houses.csv")
+houses = pd.read_csv("../../../data/houses.csv")
 info = houses.head(7)
 print(info)
 

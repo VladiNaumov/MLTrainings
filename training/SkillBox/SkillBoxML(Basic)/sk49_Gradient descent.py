@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from scipy.spatial import distance
 
-data = pd.read_csv('../../data/non_linear.csv', sep=',')
+data = pd.read_csv('../../../data/non_linear.csv', sep=',')
 data = data[(data.x_train > 1) & (data.x_train < 5)].copy()
 data.head()
 

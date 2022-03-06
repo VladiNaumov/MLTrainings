@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_text
 
 # загружаем данные
-houses = pd.read_csv("../../data/houses.csv")
+houses = pd.read_csv("../../../data/houses.csv")
 
 # выгружаем признаки и целевые значения в отдельные переменные
 X = houses[["dim_1", "dim_2"]]

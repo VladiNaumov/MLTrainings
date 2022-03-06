@@ -31,7 +31,7 @@ plt.show()
 
 
 """ Загружаем данные для демонстрации принцепа обучения нелинейной регрессии  """                                       
-data = pd.read_csv('../../data/non_linear.csv', sep=',')
+data = pd.read_csv('../../../data/non_linear.csv', sep=',')
 data.head()
 
 

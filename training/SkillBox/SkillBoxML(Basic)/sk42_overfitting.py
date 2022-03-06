@@ -11,7 +11,7 @@ from sklearn.linear_model import Ridge, Lasso
 from sklearn.metrics import mean_squared_error
 
 
-data = pd.read_csv('../../data/non_linear.csv', sep=',')
+data = pd.read_csv('../../../data/non_linear.csv', sep=',')
 # смотрим какие данные у нас есть
 data.head()
 

@@ -22,7 +22,7 @@ import pickle
 import numpy as np
 
 # данные получены с помощью функции make_classification
-with open('../../data/clustering.pkl', 'rb') as f:
+with open('../../../data/clustering.pkl', 'rb') as f:
     data_clustering = pickle.load(f)
 
 X = np.array(data_clustering['X'])
