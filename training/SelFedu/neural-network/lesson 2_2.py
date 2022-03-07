@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 N = 5
+
+#b - beis
 b = 3
 
 x1 = np.random.random(N)
@@ -20,6 +22,16 @@ w = np.array([-w2, w2, w3])
 for i in range(N):
     x = np.array([C1[0][i], C1[1][i], 1])
     y = np.dot(w, x)
+    print(w)
+    print(x)
+    print(y)
+    """
+        f = np.array([1,2])
+        g = np.array([4,5])
+        ### 1*4+2*5
+        np.dot(f, g)
+        Output: 14
+    """
     if y >= 0:
         print("Класс C1")
     else:

@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#
 N = 5
 
 x1 = np.random.random(N)
@@ -17,10 +18,19 @@ w = np.array([-0.3, 0.3])
 for i in range(N):
     x = np.array([C2[0][i], C2[1][i]])
     y = np.dot(w, x)
+	
+    """
+        a = np.array([1,2])
+        b = np.array([4,5])
+        ### 1*4+2*5
+        np.dot(a, b)
+        Output: 14
+     """
     if y >= 0:
         print("Класс C1")
     else:
         print("Класс C2")
+
 
 plt.scatter(C1[0][:], C1[1][:], s=10, c='red')
 plt.scatter(C2[0][:], C2[1][:], s=10, c='blue')
