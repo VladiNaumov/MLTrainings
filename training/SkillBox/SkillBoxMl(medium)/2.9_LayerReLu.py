@@ -15,6 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.misc import derivative
 
+
 class Layer:
     """
     Базовый класс слоя нашей нейронной сети.
@@ -51,7 +52,7 @@ class ReLU(Layer):
         # Например, если указан интервал [0, 1],
         # значения меньше 0 становятся 0, а значения больше 1 становятся 1.
 
-        output =
+        output = 0 if x < 0 else 1
 
         # < YOUR CODE ENDS HERE >
         assert output.shape == x.shape
@@ -77,7 +78,8 @@ class ReLU(Layer):
         # < YOUR CODE STARTS HERE >
         # переменная dz_dx должна содержать производную выхода ReLU по ее входу
 
-        dz_dx =
+        dz_dx = 0 # < YOUR CODE STARTS HERE >
+
 
         # < YOUR CODE ENDS HERE >
         assert dz_dx.shape == self._saved_input.shape, f"Shapes must be the same. Got {dz_dx.shape, self._saved_input.shape}"
@@ -86,6 +88,7 @@ class ReLU(Layer):
 
 relu = ReLU()
 
+"""
 # убедитесь, что график соответствует представленному вверху
 plt.plot(np.linspace(-1, 1, 100), relu.forward(np.linspace(-1, 1, 100)))
 
@@ -99,8 +102,11 @@ numeric_grads = derivative(f, x, dx=1e-6)
 assert np.allclose(grads, numeric_grads, rtol=1e-3, atol=0),\
      "gradient returned by your layer does not match the numerically computed gradient"
 print("Test passed")
+"""
+
 
 """ Задание 2 Реализация полносвязного слоя. """
+
 
 class FCLayer(Layer):
     """
@@ -136,7 +142,7 @@ class FCLayer(Layer):
         # < YOUR CODE STARTS HERE >
         # переменная output должна содержать выход полносвязного слоя
 
-        output =
+        output = 0 # < YOUR CODE STARTS HERE >
 
         # < YOUR CODE ENDS HERE >
 
